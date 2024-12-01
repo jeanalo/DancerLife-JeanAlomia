@@ -22,28 +22,8 @@
               <video id="jeanVideo" src="./Rehearsing.mp4" loop autoplay muted></video>
            
 
-              <script>
-                document.addEventListener('scroll', () => {
-                    const video = document.getElementById('jeanVideo');
-                    const videoContainer = video.parentElement;
-            
-                    // Obtener las dimensiones del contenedor del video
-                    const rect = videoContainer.getBoundingClientRect();
-                    const windowHeight = window.innerHeight;
-            
-                    // Si el video está visible en la ventana del navegador
-                    if (rect.top < windowHeight && rect.bottom > 0) {
-                        // Activar sonido si el video está visible
-                        video.muted = false;
-                        video.play().catch(error => {
-                            console.error('Error al intentar reproducir el video con sonido:', error);
-                        });
-                    } else {
-                        // Silenciar el video si está fuera de la vista
-                        video.muted = true;
-                    }
-                });
-            </script>
+
+                
               <!-- This needs a 100vh mask inside of an element that's smaller in size to offset text -->
               <!-- First block is like calc(50vh + 0.5lh) -->
               <section class="video-mask fluid">
