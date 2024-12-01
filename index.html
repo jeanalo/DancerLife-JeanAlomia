@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles3.css">
 </head>
 <body>
     <div class="timeline">
@@ -18,7 +19,30 @@
           <div class="video-timeline">
             <!-- Video sits in the background stuck-->
             <div class="video-container fluid">
-              <video src="/jeanDancing.mp4" loop autoplay muted></video>
+              <video id="jeanVideo" src="/jeanDancing.mp4" loop autoplay muted></video>
+
+              <script>
+                document.addEventListener('scroll', () => {
+                    const video = document.getElementById('jeanVideo');
+                    const videoContainer = video.parentElement;
+            
+                    // Obtener las dimensiones del contenedor del video
+                    const rect = videoContainer.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+            
+                    // Si el video está visible en la ventana del navegador
+                    if (rect.top < windowHeight && rect.bottom > 0) {
+                        // Activar sonido si el video está visible
+                        video.muted = false;
+                        video.play().catch(error => {
+                            console.error('Error al intentar reproducir el video con sonido:', error);
+                        });
+                    } else {
+                        // Silenciar el video si está fuera de la vista
+                        video.muted = true;
+                    }
+                });
+            </script>
               <!-- This needs a 100vh mask inside of an element that's smaller in size to offset text -->
               <!-- First block is like calc(50vh + 0.5lh) -->
               <section class="video-mask fluid">
@@ -78,13 +102,9 @@
           <section class="content fluid">
             <div class="fluid">
               <h2
-                class="fluid"
-                data-gramm="false"
-                data-gramm_editor="false"
-                data-enable-grammarly="false"
-                contenteditable="true"
+                
               >
-                SIEMPRE BAILA.
+              <iframe src="bannercambiante.html" width="100%" height="100%" style="border: none; background-color: transparent;"></iframe>  
               </h2>
               <p class="fluid">
                 "Para mí, la mayor parte de la magia&nbsp;<span>está en el movimiento.</span> 
@@ -94,6 +114,52 @@
                 <span>Toca la imagen y descubre mi historia. 👇🏾</span>
               </p>
             </div>
+
+            <!-- LONUEVODELEMOJI -->
+            <div class="emoji-right">
+              <div class="centered-box">
+                <div class="ludek">
+                  <div class="facet">
+                    <figure class="glowa">
+                      <span class="wlosy">
+                        <span class="grzywka"></span>
+                        <span class="kogut"></span>
+                        <span class="kogut dwa"></span>
+                        <span class="kogut trzy"></span>
+                      </span>
+                      <span class="uszy">
+                        <span class="ucho ucho-lewe"></span>
+                        <span class="ucho ucho-prawe"></span>
+                      </span>
+                      <span class="oczy">
+                        <span class="oko oko-lewe"></span>
+                        <span class="oko oko-prawe"></span>
+                      </span>
+                      <span class="nos"></span>
+                      <span class="buzia"></span>
+                    </figure>
+                    <figure class="rece">
+                      <span class="reka-lewa"></span>
+                      <span class="reka-prawa"></span>
+                    </figure>
+                    <figure class="tlow">
+                      <span class="szyja"></span>
+                      <span class="brzuch"></span>
+                    </figure>
+                    <figure class="nogi">
+                      <span class="noga-lewa"></span>
+                      <span class="noga-prawa"></span>
+                    </figure>
+                  </div>
+                  <figure class="facet-cien">
+                    <!-- <span class="cien-lewy"></span> -->
+                    <span class="cien-prawy"></span>
+                  </figure>
+                </div>
+              </div>
+            </div>
+             <!-- HASTAAQUIVAELEMOJI -->
+              
           </section>
           <div class="box">
             <span></span>
@@ -117,9 +183,7 @@
           
          
         </main>
-        <footer>
-          
-        </footer>
+        
       </div>
   
       <svg class="svg-filter">
@@ -180,16 +244,12 @@
           ></path>
         </svg>
       </a>
-      <iframe src="index2.html" width="100%" height="500" style="border: none;"></iframe>      
-      
-      
-    
-      
-
-
+<br><br><br>
+      <iframe src="index3.html" width="100%" height="500" style="border: none;"></iframe>  
+      <iframe src="index2.html" width="100%" height="500" style="border: none;"></iframe>  
+      <!-- <iframe src="indexfooter.html" width="100%" height="500" style="border: none;"></iframe>  -->
 
       
-    <script src="index.js" ></script>
     
 </body>
 </html>
